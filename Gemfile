@@ -26,6 +26,7 @@ gem "ffaker"
 gem "kaminari"
 gem "kaminari-bootstrap"
 gem "jquery-rails", "~> 4.3", ">= 4.3.1"
+gem "bootstrap_form", ">= 4.2.0"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

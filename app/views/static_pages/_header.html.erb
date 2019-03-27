@@ -41,7 +41,7 @@
               <%= link_to t(".contact_us"), "#", class: "menu-link sub-menu-link" %>
             </li>
             <% if logged_in? %>
-              <li><% if current_user.admin %><%= link_to t(".users"), users_path %><% end %></li>
+              <li><% if current_user.admin? %><%= link_to t(".users"), users_path %><% end %></li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <%= t ".account" %><b class="caret"></b>

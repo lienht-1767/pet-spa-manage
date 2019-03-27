@@ -1,0 +1,86 @@
+<div class="container">
+<div class="main-wrap-shop col-md-12 col-sm-8">
+  <div id="product-724">
+    <div class="product-detail">
+      <div class="row">
+        <div class="col-md-5 col-sm-12 col-xs-12">
+          <div class="detail-gallery">
+            <div class="wrap-detail-gallery images zoom-style2">
+              <div class="mid woocommerce-product-gallery__image">
+                <%= image_tag "slide1-2" %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-7 col-sm-12 col-xs-12">
+          <div class="summary entry-summary detail-info">
+            <h2 class="product-title title24 dosis-font font-bold text-uppercase">Name : <%= @service.name %></h2>
+            <p class="price"></p>
+            <div class="product-price simple"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span><%= @service.price %></span></div>
+          </div>
+          <div class="des ">
+            <h2 class="title18 font-bold text-uppercase title-single-related-post">Description</h2>
+            <div>
+              <p><%= @service.description %></p>
+            </div>
+            <% if logged_in? %>
+            <button class="btn btn-success" id="book" onclick="showStuff('form-order'); return false;">Book now</button>
+            <% else %>
+            <button class="btn btn-success" id="book" onclick="login('login'); return false;">Book now</button>
+            <p id="login" style="display: none">Please login before book</p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="form-order col-md-6" id="form-order" style="display: none">
+      <%= bootstrap_form_tag url: '/subscribe', class: "col-md-5" do |f| %>
+        <% if logged_in? %>
+          <%= f.hidden_field :user_id, value: current_user.id %>
+        <% end %>
+        <%= f.text_field :petname %>
+        <%= f.text_field :breed %>
+        <%= f.text_field :gender %>
+        <%= f.text_field :height %>
+        <%= f.text_field :weight %>
+        <%= f.collection_check_boxes :services, Service.all, :id, :name %>
+        <%= f.datetime_field :publishing_date, class: "form-control" %>
+        <%= f.submit :submit %>
+      <% end %>
+    </div>
+    <div class="related-product col-md-12">
+      <h2 class="title18 font-bold text-uppercase single-title">Related products</h2>
+      <div class="product-slider">
+        <div class="post-716 product">
+          <div class="item-product item-product-grid">
+            <div class="product-thumb">
+              <a href="" class="product-thumb-link zoom-thumb">
+                <%= image_tag "slide1-2" %>
+              </a>
+              <div class="product-extra-link text-center">
+                <a href="index58aa.html?add-to-cart=716" rel="nofollow" data-product_id="716" data-product_sku="DSP92037" data-quantity="1" class="button addcart-link shop-button bg-color product_type_simple add_to_cart_button s7upf_ajax_add_to_cart product_type_simple" data-title="Cannoly"><span>Detail</span></a>
+              </div>
+            </div>
+            <div class="product-info">
+              <h3 class="title18 text-uppercase product-title dosis-font font-bold">
+                <a title="Cannoly" href="../cannoly/index.html" class="black">name</a>
+              </h3>
+              <div class="product-price simple"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>{{$dog->price}}</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<script type="text/javascript">
+  function showStuff(id) {
+    document.getElementById(id).style.display = 'block';
+  }
+
+  function login(id){
+    document.getElementById(id).style.display = 'block';
+  }
+</script>

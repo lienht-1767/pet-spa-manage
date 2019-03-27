@@ -7,12 +7,13 @@
     </div>
     <div class="banner-info" style="height: 186px;">
         <div class="container">
+            <% @post.each do |post| %>
             <div class="slider-content-text white text-center text-uppercase animated bounceIn" data-animated="bounceIn">
-                <h3 class="title30 dosis-font font-bold"><%= t ".title" %></h3>
-                <h2 class="title48 dosis-font font-bold"><%= t ".summary" %></h2>
-                <h4 class="title18 dosis-font"><%= t ".summary_1" %></h4>
-                <p><%= link_to t(".read_more"), "#" %></p>
+                <h3 class="title48 dosis-font font-bold"><%= post.title %></h3>
+                <h2 class="title30 dosis-font font-bold"><%= post.sumary %></h2>
+                <p><%= link_to t(".read_more"), "#", class: "btn btn-success" %></p>
             </div>
+            <% end %>
         </div>
     </div>
   </div>
