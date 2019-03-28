@@ -1,0 +1,27 @@
+<div class="content-wrap content-sidebar-right col-md-9 col-sm-8 col-xs-12">
+  <div class="title-page clearfix">
+    <h2 class="title30 font-bold dosis-font text-uppercase pull-left">Posts</h2>
+  </div>
+  <div class="js-content-wrap blog-list-view ">
+    <% @posts.each do |p| %>
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="post-thumb banner-advs zoom-image overlay-image">
+          <%= link_to image_tag("slide1-2.jpg"), post_path(p.id) %>
+        </div>
+      </div>
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="post-info">
+          <h3 class="title24 post-title dosis-font font-bold">
+            <a href="" class="black"><%= p.title %></a>
+          </h3>
+          <p class="desc"><%= p.sumary %></p>
+          <%= link_to "Read more", post_path(p.id), class: "shop-button" %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+  <%= paginate @posts %>
+</div>
+<div class="clearfix"></div>

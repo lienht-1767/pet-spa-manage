@@ -8,7 +8,7 @@
           <div class="product-type-simple">
             <div class="item-product item-product-grid">
               <div class="product-thumb">
-                <%= link_to "Detail", service_detail_url(s.id) %>
+                <%= link_to "Detail", service_path(s.id) %>
                 <img width="270" height="270" src="asset/uploads/2018/01/pet_store_dog_01.jpg" class="attachment-270x270 size-270x270 wp-post-image" alt="" sizes="(max-width: 270px) 100vw, 270px">
                 <div class="product-info">
                   <h3 class="title18 text-uppercase product-title dosis-font font-bold">
@@ -20,7 +20,7 @@
               </div>
             </div>
             <div class="text-right">
-              <%= link_to "Read mores", service_detail_url(s.id) %>
+              <%= link_to "Read mores", service_path(s.id) %>
             </div>
           </div>
         </div>

@@ -50,8 +50,9 @@
       <% end %>
     </div>
     <div class="related-product col-md-12">
-      <h2 class="title18 font-bold text-uppercase single-title">Related products</h2>
+      <h2 class="title18 font-bold text-uppercase single-title">Related services</h2>
       <div class="product-slider">
+        <% @other_services.limit(3).each do |o| %>
         <div class="post-716 product">
           <div class="item-product item-product-grid">
             <div class="product-thumb">
@@ -59,17 +60,18 @@
                 <%= image_tag "slide1-2" %>
               </a>
               <div class="product-extra-link text-center">
-                <a href="index58aa.html?add-to-cart=716" rel="nofollow" data-product_id="716" data-product_sku="DSP92037" data-quantity="1" class="button addcart-link shop-button bg-color product_type_simple add_to_cart_button s7upf_ajax_add_to_cart product_type_simple" data-title="Cannoly"><span>Detail</span></a>
+                <%= link_to "Detail", service_url(o.id), class: "button addcart-link shop-button bg-color" %>
               </div>
             </div>
             <div class="product-info">
               <h3 class="title18 text-uppercase product-title dosis-font font-bold">
-                <a title="Cannoly" href="../cannoly/index.html" class="black">name</a>
+                <%= link_to o.name, service_url(o.id) %>
               </h3>
-              <div class="product-price simple"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>{{$dog->price}}</span></div>
+              <div class="product-price simple"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span><%= o.price %></span></div>
             </div>
           </div>
         </div>
+        <% end %>
       </div>
     </div>
   </div>
@@ -79,7 +81,6 @@
   function showStuff(id) {
     document.getElementById(id).style.display = 'block';
   }
-
   function login(id){
     document.getElementById(id).style.display = 'block';
   }

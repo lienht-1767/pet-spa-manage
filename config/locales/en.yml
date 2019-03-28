@@ -101,7 +101,7 @@ en:
       register: "Register"
       home: "Home"
       services: "Services"
-      blogs: "Blogs"
+      posts: "Posts"
       about_us: "About us"
       contact_us: "Contact us"
       account: "Account"

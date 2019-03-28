@@ -1,0 +1,58 @@
+<div class="container">
+<div class="main-wrap-shop col-md-12 col-sm-8">
+  <div id="product-724">
+    <div class="product-detail">
+      <div class="row">
+        <div class="col-md-5 col-sm-12 col-xs-12">
+          <div class="detail-gallery">
+            <div class="wrap-detail-gallery images zoom-style2">
+              <div class="mid woocommerce-product-gallery__image">
+                <%= image_tag "slide1-2" %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12s col-sm-12 col-xs-12">
+          <div class="summary entry-summary detail-info">
+            <h2 class="product-title title24 dosis-font font-bold text-uppercase">Name : <%= @post.title %></h2>
+            <p class="price"></p>
+            <div class="product-price simple"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span><%= @post.sumary %></span></div>
+          </div>
+          <div class="des ">
+            <h2 class="title18 font-bold text-uppercase title-single-related-post"></h2>
+            <div>
+              <p><%= @post.content %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="related-product col-md-12">
+      <h2 class="title18 font-bold text-uppercase single-title">Related Posts</h2>
+      <div class="product-slider">
+      <% @other_posts.limit(3).each do |o| %>
+        <div class="post-716 product">
+          <div class="item-product item-product-grid">
+            <div class="product-thumb">
+              <a href="" class="product-thumb-link zoom-thumb">
+                <%= image_tag "slide1-2" %>
+              </a>
+              <div class="product-extra-link text-center">
+                <%= link_to "Detail", post_url(o.id), class: "button addcart-link shop-button bg-color" %>
+              </div>
+            </div>
+            <div class="product-info">
+              <h3 class="title18 text-uppercase product-title dosis-font font-bold">
+                <%= link_to o.title, service_url(o.id) %>
+              </h3>
+              <div class="product-price simple"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span><%= o.sumary %></span></div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

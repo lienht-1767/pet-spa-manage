@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get "/service-detail/:id", to: "static_pages#service_detail", :as => :service_detail
   get "sessions/new"
   get "/signup", to: "users#new"
   get "/admin", to: "admin/base#home"
@@ -12,8 +11,11 @@ Rails.application.routes.draw do
   resources :users
   resources :account_activations, only: %i(edit)
   resources :password_resets, except: %i(index show destroy)
+  resources :posts, only: %i(index show)
+  resources :services, only: %i(index show)
   namespace :admin do
    resources :comments
    resources :services
+   resources :posts
   end
 end

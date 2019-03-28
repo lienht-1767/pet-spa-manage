@@ -36,7 +36,7 @@ end
 end
 
 20.times do |n|
-  Service.create!(name: FFaker::Lorem.sentence(8),
+  Service.create!(name: FFaker::Lorem.sentence(3),
                   status: 1,
                   price: FFaker::Random.rand(10..99),
                   description: FFaker::Lorem.sentence(10))

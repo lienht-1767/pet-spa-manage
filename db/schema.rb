@@ -94,6 +94,8 @@ ActiveRecord::Schema.define(version: 2019_03_27_043904) do
     t.string "activation_digest"
     t.boolean "activated"
     t.datetime "activated_at"
+    t.string "reset_digest"
+    t.datetime "reset_send_at"
     t.boolean "admin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
