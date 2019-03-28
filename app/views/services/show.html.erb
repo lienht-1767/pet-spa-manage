@@ -14,20 +14,22 @@
         </div>
         <div class="col-md-7 col-sm-12 col-xs-12">
           <div class="summary entry-summary detail-info">
-            <h2 class="product-title title24 dosis-font font-bold text-uppercase">Name : <%= @service.name %></h2>
+            <h2 class="product-title title24 dosis-font font-bold text-uppercase"><%= @service.name %></h2>
             <p class="price"></p>
-            <div class="product-price simple"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span><%= @service.price %></span></div>
+            <div class="product-price simple">
+              <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span><%= @service.price %>
+            </span>
+          </div>
           </div>
           <div class="des ">
-            <h2 class="title18 font-bold text-uppercase title-single-related-post">Description</h2>
             <div>
               <p><%= @service.description %></p>
             </div>
             <% if logged_in? %>
-            <button class="btn btn-success" id="book" onclick="showStuff('form-order'); return false;">Book now</button>
+            <button class="btn btn-success" id="book" onclick="showStuff('form-order'); return false;"><%= t ".book" %></button>
             <% else %>
-            <button class="btn btn-success" id="book" onclick="login('login'); return false;">Book now</button>
-            <p id="login" style="display: none">Please login before book</p>
+            <button class="btn btn-success" id="book" onclick="login('login');">
+              <%= t ".book" %></button><p><%= t ".login" %></p>
             <% end %>
           </div>
         </div>
@@ -50,7 +52,9 @@
       <% end %>
     </div>
     <div class="related-product col-md-12">
-      <h2 class="title18 font-bold text-uppercase single-title">Related services</h2>
+      <h2 class="title18 font-bold text-uppercase single-title">
+        <%= t ".related" %>
+      </h2>
       <div class="product-slider">
         <% @other_services.limit(3).each do |o| %>
         <div class="post-716 product">
@@ -60,7 +64,7 @@
                 <%= image_tag "slide1-2" %>
               </a>
               <div class="product-extra-link text-center">
-                <%= link_to "Detail", service_url(o.id), class: "button addcart-link shop-button bg-color" %>
+              <%= link_to t(".detail"), service_url(o.id), class: "button addcart-link shop-button bg-color" %>
               </div>
             </div>
             <div class="product-info">
@@ -77,11 +81,4 @@
   </div>
 </div>
 </div>
-<script type="text/javascript">
-  function showStuff(id) {
-    document.getElementById(id).style.display = 'block';
-  }
-  function login(id){
-    document.getElementById(id).style.display = 'block';
-  }
-</script>
+<%= javascript_include_tag "services.js" %>
