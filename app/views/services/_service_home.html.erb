@@ -3,7 +3,7 @@
     <h2 class="title30 font-bold text-uppercase"><%= t ".our_service" %></h2>
     <div class="owl-wrapper" >
       <div class="owl-item active service">
-        <% @services.limit(3).each do |s| %>
+        <% @services.each do |s| %>
         <div class="item">
           <div class="product-type-simple">
             <div class="item-product item-product-grid">
