@@ -13,10 +13,10 @@
       <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="post-info">
           <h3 class="title24 post-title dosis-font font-bold">
-            <%= link_to p.title, post_path(p.id) %></a>
+            <%= link_to p.title, post_path(p) %></a>
           </h3>
           <p class="desc"><%= p.sumary %></p>
-          <%= link_to t(".read_more"), post_path(p.id), class: "shop-button" %>
+          <%= link_to t(".read_more"), post_path(p), class: "shop-button" %>
         </div>
       </div>
     </div>

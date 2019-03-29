@@ -26,11 +26,12 @@
               <p><%= @service.description %></p>
             </div>
             <% if logged_in? %>
-            <button class="btn btn-success" id="book" onclick="showStuff('form-order'); return false;"><%= t ".book" %></button>
+            <button class="btn btn-success" id="book-logged" onclick="showStuff('form-order'); return false;"><%= t ".book" %></button>
             <% else %>
             <button class="btn btn-success" id="book" onclick="login('login');">
-              <%= t ".book" %></button><p><%= t ".login" %></p>
+              <%= t ".book" %></button>
             <% end %>
+            <p id="login" style="display: none"><%= t ".login" %></p>
           </div>
         </div>
       </div>
@@ -64,12 +65,12 @@
                 <%= image_tag "slide1-2" %>
               </a>
               <div class="product-extra-link text-center">
-              <%= link_to t(".detail"), service_url(o.id), class: "button addcart-link shop-button bg-color" %>
+              <%= link_to t(".detail"), service_url(o), class: "button addcart-link shop-button bg-color" %>
               </div>
             </div>
             <div class="product-info">
               <h3 class="title18 text-uppercase product-title dosis-font font-bold">
-                <%= link_to o.name, service_url(o.id) %>
+                <%= link_to o.name, service_url(o) %>
               </h3>
               <div class="product-price simple"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span><%= o.price %></span></div>
             </div>

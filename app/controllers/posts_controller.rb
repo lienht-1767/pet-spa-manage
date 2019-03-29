@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @other_posts = Post.other_posts(@post.id)
+    @other_posts = Post.other_posts @post
   end
 
   private

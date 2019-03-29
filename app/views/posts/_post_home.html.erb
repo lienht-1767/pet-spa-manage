@@ -6,18 +6,18 @@
       <div class="item">
         <div class="item-post item-post-default style2">
           <div class="post-thumb banner-advs zoom-image overlay-image">
-            <%= link_to image_tag("slide1-2.jpg"), post_path(p.id) %>
+            <%= link_to image_tag("slide1-2.jpg"), post_path(p) %>
           </div>
           <div class="post-info">
             <h3 class="title14 dosis-font text-uppercase font-bold post-title">
-              <%= link_to p.title, post_path(p.id) %>
+              <%= link_to p.title, post_path(p) %>
             </h3>
             <ul class="list-inline-block post-meta-data">
               <li><i aria-hidden="true" class="fa fa-comment color"></i>
-                0 Comments</li>
+               <%= Comment.count_cmt(p) %> <%= t ".comments" %></li>
             </ul>
             <p class="desc"><%= p.sumary %></p>
-            <%= link_to t(".read_more"), post_path(p.id), class: "readmore text-uppercase font-bold" %>
+            <%= link_to t(".read_more"), post_path(p), class: "readmore text-uppercase font-bold" %>
           </div>
         </div>
       </div>

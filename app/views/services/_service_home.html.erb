@@ -8,10 +8,10 @@
           <div class="product-type-simple">
             <div class="item-product item-product-grid">
               <div class="product-thumb">
-                <%= link_to image_tag("slide1-2.jpg"), service_path(s.id) %>
+                <%= link_to image_tag("slide1-2.jpg"), service_path(s) %>
                 <div class="product-info">
                   <h3 class="title18 text-uppercase product-title dosis-font font-bold">
-                    <%= link_to s.name, service_path(s.id) %>
+                    <%= link_to s.name, service_path(s) %>
                   </h3>
                   <p class="white"><%= s.description %></p>
                   <div class="product-price simple"><ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span><%= s.price %></span></ins></div>
@@ -19,7 +19,7 @@
               </div>
             </div>
             <div class="text-right">
-              <%= link_to t(".read_more"), service_path(s.id) %>
+              <%= link_to t(".read_more"), service_path(s) %>
             </div>
           </div>
         </div>

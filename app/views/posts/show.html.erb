@@ -39,12 +39,12 @@
                 <%= image_tag "slide1-2" %>
               </a>
               <div class="product-extra-link text-center">
-              <%= link_to t(".detail"), post_url(o.id), class: "button addcart-link shop-button bg-color" %>
+              <%= link_to t(".detail"), post_url(o), class: "button addcart-link shop-button bg-color" %>
               </div>
             </div>
             <div class="product-info">
               <h3 class="title18 text-uppercase product-title dosis-font font-bold">
-                <%= link_to o.title, service_url(o.id) %>
+                <%= link_to o.title, service_url(o) %>
               </h3>
               <div class="product-price simple"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span><%= o.sumary %></span></div>
             </div>

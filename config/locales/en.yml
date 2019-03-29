@@ -170,6 +170,7 @@ en:
     post_home:
       title: "POSTS"
       read_more: "Read more"
+      comments: "Comments"
     show:
       related: "Related Posts"
       detail: "Detail"

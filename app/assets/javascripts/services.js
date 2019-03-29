@@ -1,6 +1,8 @@
-function showStuff(id) {
-  document.getElementById(id).style.display = 'block';
-}
-function login(id){
-  document.getElementById(id).style.display = 'block';
-}
+$(document).ready(function(){
+  $('#book-logged').click(function () {
+    $('#form-order').show();
+  })
+  $('#book').click(function () {
+    $('#login').show();
+  })
+});
