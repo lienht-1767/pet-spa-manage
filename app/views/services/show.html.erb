@@ -14,7 +14,8 @@
         </div>
         <div class="col-md-7 col-sm-12 col-xs-12">
           <div class="summary entry-summary detail-info">
-            <h2 class="product-title title24 dosis-font font-bold text-uppercase"><%= @service.name %></h2>
+            <h2 class="product-title title24 font-bold text-uppercase">
+              <%= @service.name %></h2>
             <p class="price"></p>
             <div class="product-price simple">
               <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span><%= @service.price %>
@@ -26,19 +27,17 @@
               <p><%= @service.description %></p>
             </div>
             <% if logged_in? %>
-            <button class="btn btn-success" id="book-logged" onclick="showStuff('form-order'); return false;"><%= t ".book" %></button>
+            <button class="btn btn-success book"><%= t ".book" %></button>
             <% else %>
-            <button class="btn btn-success" id="book" onclick="login('login');">
-              <%= t ".book" %></button>
+            <p class="price login"><%= t ".login" %></p>
             <% end %>
-            <p id="login" style="display: none"><%= t ".login" %></p>
           </div>
         </div>
       </div>
     </div>
     <hr>
     <div class="form-order col-md-6" id="form-order" style="display: none">
-      <%= bootstrap_form_tag url: '/subscribe', class: "col-md-5" do |f| %>
+      <%= bootstrap_form_tag url: "/subscribe", class: "col-md-5" do |f| %>
         <% if logged_in? %>
           <%= f.hidden_field :user_id, value: current_user.id %>
         <% end %>
@@ -47,7 +46,7 @@
         <%= f.text_field :gender %>
         <%= f.text_field :height %>
         <%= f.text_field :weight %>
-        <%= f.collection_check_boxes :services, Service.all, :id, :name %>
+        <%= f.collection_check_boxes :services, all_services, :id, :name %>
         <%= f.datetime_field :publishing_date, class: "form-control" %>
         <%= f.submit :submit %>
       <% end %>
@@ -57,7 +56,7 @@
         <%= t ".related" %>
       </h2>
       <div class="product-slider">
-        <% @other_services.limit(3).each do |o| %>
+        <% @other_services.limit(3).each do |other_services| %>
         <div class="post-716 product">
           <div class="item-product item-product-grid">
             <div class="product-thumb">
@@ -65,14 +64,14 @@
                 <%= image_tag "slide1-2" %>
               </a>
               <div class="product-extra-link text-center">
-              <%= link_to t(".detail"), service_url(o), class: "button addcart-link shop-button bg-color" %>
+              <%= link_to t(".detail"), service_url(other_services), class: "button addcart-link shop-button bg-color" %>
               </div>
             </div>
             <div class="product-info">
               <h3 class="title18 text-uppercase product-title dosis-font font-bold">
-                <%= link_to o.name, service_url(o) %>
+                <%= link_to other_services.name, service_url(other_services) %>
               </h3>
-              <div class="product-price simple"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span><%= o.price %></span></div>
+              <div class="product-price simple"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span><%= other_services.price %></span></div>
             </div>
           </div>
         </div>

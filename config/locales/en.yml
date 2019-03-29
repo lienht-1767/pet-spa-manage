@@ -166,6 +166,7 @@ en:
     show:
       related: "Related services"
       detail: "Detail"
+      login: "Please login before book"
   posts:
     post_home:
       title: "POSTS"

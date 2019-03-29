@@ -31,7 +31,7 @@
     <div class="related-product col-md-12">
       <h2 class="title18 font-bold text-uppercase"><%= t ".related" %></h2>
       <div class="product-slider">
-      <% @other_posts.limit(3).each do |o| %>
+      <% @other_posts.each do |other_posts| %>
         <div class="post-716 product">
           <div class="item-product item-product-grid">
             <div class="product-thumb">
@@ -39,14 +39,14 @@
                 <%= image_tag "slide1-2" %>
               </a>
               <div class="product-extra-link text-center">
-              <%= link_to t(".detail"), post_url(o), class: "button addcart-link shop-button bg-color" %>
+              <%= link_to t(".detail"), post_url(other_posts), class: "button addcart-link shop-button bg-color" %>
               </div>
             </div>
             <div class="product-info">
               <h3 class="title18 text-uppercase product-title dosis-font font-bold">
-                <%= link_to o.title, service_url(o) %>
+                <%= link_to other_posts.title, service_url(other_posts) %>
               </h3>
-              <div class="product-price simple"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span><%= o.sumary %></span></div>
+              <div class="product-price simple"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span><%= other_posts.sumary %></span></div>
             </div>
           </div>
         </div>

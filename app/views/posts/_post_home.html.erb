@@ -14,7 +14,7 @@
             </h3>
             <ul class="list-inline-block post-meta-data">
               <li><i aria-hidden="true" class="fa fa-comment color"></i>
-               <%= Comment.count_cmt(p) %> <%= t ".comments" %></li>
+               <%= count_comments(p) %> <%= t ".comments" %></li>
             </ul>
             <p class="desc"><%= p.sumary %></p>
             <%= link_to t(".read_more"), post_path(p), class: "readmore text-uppercase font-bold" %>

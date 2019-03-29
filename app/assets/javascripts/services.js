@@ -1,8 +1,5 @@
 $(document).ready(function(){
-  $('#book-logged').click(function () {
+  $('.book').click(function () {
     $('#form-order').show();
-  })
-  $('#book').click(function () {
-    $('#login').show();
   })
 });
