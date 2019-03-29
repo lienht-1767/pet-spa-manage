@@ -4,6 +4,7 @@ class OrdersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit :name, :email, :password, :password_confirmation
+    params.require(:order).permit :user_id, :date, order_details_attributes:
+      [:order_id]
   end
 end

@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :password_resets, except: %i(index show destroy)
   resources :posts, only: %i(index show)
   resources :services, only: %i(index show)
+  resources :orders
   namespace :admin do
    resources :comments
    resources :services

@@ -1,0 +1,11 @@
+<%= bootstrap_form_tag url: "/subscribe", class: "col-md-5" do |f| %>
+  <% if logged_in? %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+  <% end %>
+  <%= f.text_field :petname %>
+  <%= f.text_field :breed %>
+  <%= f.text_field :gender %>
+  <%= f.collection_check_boxes :services, all_services, :id, :name %>
+  <%= f.datetime_field :publishing_date, class: "form-control" %>
+  <%= f.submit :submit %>
+<% end %>
