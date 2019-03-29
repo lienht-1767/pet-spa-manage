@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @other_posts = Post.other_posts @post
+    @other_posts = Post.other_posts(@post).limit Settings.limit_home
   end
 
   private

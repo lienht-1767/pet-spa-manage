@@ -6,7 +6,7 @@ class ServicesController < ApplicationController
   end
 
   def show
-    @other_services = Service.other_services @service
+    @other_services = Service.other_services(@service).limit Settings.limit_home
   end
 
   private
