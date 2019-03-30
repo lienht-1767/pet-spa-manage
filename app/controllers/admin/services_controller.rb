@@ -21,22 +21,6 @@ class Admin::ServicesController < Admin::BaseController
     end
   end
 
-  def new
-    @service = Service.new
-  end
-
-  def create
-    @service = Service.new service_params
-
-    if @service.save
-      flash[:success] = t(".created")
-      redirect_to admin_services_path
-    else
-      flash[:error] = t(".create_unsuccess")
-      render :new
-    end
-  end
-
   def edit; end
 
   def update

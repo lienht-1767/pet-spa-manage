@@ -142,6 +142,9 @@ en:
       update:
         post_updated: "Post updated!"
         success: "Update successfully"
+      destroy:
+        post_deleted: "Post deleted!"
+        delete_failed: "Post delete failed!"
       load_post:
         post_not_found: "Post haven't found"
       edit:

@@ -7,7 +7,7 @@ class Service < ApplicationRecord
 
   validate  :picture_size
   validates :name, presence: true,
-            length: {maximum: Settings.max_service_name}
+    length: {maximum: Settings.max_service_name}
   validates :price, presence: true, numericality: {only_float: true}
   validates :status, presence: true
 
@@ -15,7 +15,7 @@ class Service < ApplicationRecord
 
   scope :all_services, ->{select :id, :name, :description, :price}
   scope :other_services, ->(id){where.not id: id}
-  scope :by_lastest, -> {order created_at: :desc}
+  scope :by_lastest, ->{order created_at: :desc}
 
   private
   def picture_size
