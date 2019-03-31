@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   resources :users
   resources :account_activations, only: %i(edit)
   resources :password_resets, except: %i(index show destroy)
-  resources :posts, only: %i(index show)
+  resources :posts do
+    resources :comments
+  end
   resources :services, only: %i(index show)
   namespace :admin do
     resources :comments

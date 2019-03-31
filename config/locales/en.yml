@@ -167,7 +167,7 @@ en:
         pending: "Pending"
       create:
         create_unsuccess: "Create Unsuccesfully!"
-        created: Post Created!
+        created: "Service Created!"
     post:
       post: "Post"
       ago: "ago"
@@ -288,3 +288,14 @@ en:
       check_expiration: "password expired"
   post:
     should_be_less_than_5MB: "The images should be less than 5MB!"
+  comments:
+    comment:
+      delete: "Delete"
+      edit: "Edit"
+      sure: "Are you sure?"
+      ago: "ago"
+    form:
+      create: "Create Comment"
+      update: "Update Comment"
+    comment_owner:
+      notice: "You cannot modify a different users udpates."

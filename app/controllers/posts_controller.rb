@@ -7,6 +7,8 @@ class PostsController < ApplicationController
 
   def show
     @other_posts = Post.other_posts(@post).limit Settings.limit_home
+    @comments = @post.comments.by_lastest
+    @comment = Comment.new
   end
 
   private
