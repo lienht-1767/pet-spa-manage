@@ -1,0 +1,8 @@
+<%= form_for @order , url: new_order_path do |f| %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <% Pet.all.each do |p| %>
+  <%= f.radio_button :pet_id, p.name %>
+  <% end %>
+  <%= f.radio_button :service_id %>
+  <%= f.datetime_select :date %>
+<% end %>

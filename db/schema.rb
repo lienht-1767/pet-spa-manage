@@ -54,14 +54,8 @@ ActiveRecord::Schema.define(version: 2019_03_30_144737) do
 
   create_table "pets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
-    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "breed"
-    t.string "gender"
-    t.float "weight"
-    t.float "height"
-    t.index ["user_id"], name: "index_pets_on_user_id"
   end
 
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -110,5 +104,4 @@ ActiveRecord::Schema.define(version: 2019_03_30_144737) do
   add_foreign_key "order_details", "pets"
   add_foreign_key "order_details", "services"
   add_foreign_key "orders", "users"
-  add_foreign_key "pets", "users"
 end

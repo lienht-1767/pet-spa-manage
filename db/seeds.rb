@@ -41,3 +41,6 @@ end
                   price: FFaker::Random.rand(10..99),
                   description: FFaker::Lorem.sentence(10))
 end
+
+Pet.create!(name: "Cat")
+Pet.create!(name: "Dog")

@@ -1,0 +1,14 @@
+<div class="col-md-8">
+  <%= form_for @order do |f| %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.datetime_field :date %>
+
+  <%= f.fields_for :order_details do |d| %>
+  	<%= collection_check_boxes(:pet_id, :pet_id, @pets, :id, :name) %>
+  	<%= collection_check_boxes(:service_id, :service_id, @services, :id, :name) %>
+  <% end %>
+
+  <%= f.submit "Save" %>
+<% end %>
+</div>
+<div class="clearfix"></div>
