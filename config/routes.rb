@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments
   end
-  resources :orders, only: %i(new show create destroy)
+  resources :orders
   resources :order_detail, only: %i(show)
   resources :services, only: %i(index show)
   namespace :admin do

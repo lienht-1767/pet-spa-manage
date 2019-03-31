@@ -6,15 +6,14 @@ class OrdersController < ApplicationController
 		@services = Service.public_service
 	end
 
-	def show
-		@order = Order.find_by id: params[:id]
+	def index
 	end
 
 	def create
     @order = Order.new order_params
     if @order.save
     	flash[:success] = "Ordered"
-    	redirect_to :show
+    	redirect_to orders_path
     else
     	flash[:error] = "fail"
     	render :new
@@ -24,6 +23,6 @@ class OrdersController < ApplicationController
 	private
 	def order_params
 		params.require(:order).permit :user_id, :date , order_details_attributes:
-      [:id, :pet_id, :service_id, :order_id]
+      [:pet_id, :service_id, :order_id, :price]
 	end
 end

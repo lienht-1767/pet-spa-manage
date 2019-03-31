@@ -4,8 +4,10 @@
   <%= f.datetime_field :date %>
 
   <%= f.fields_for :order_details do |d| %>
-  	<%= collection_check_boxes(:pet_id, :pet_id, @pets, :id, :name) %>
-  	<%= collection_check_boxes(:service_id, :service_id, @services, :id, :name) %>
+  	<%= d.select(:pet_id, @pets.collect {|p| [ p.name, p.id ] },
+  	{include_blank: "select pet"}) %>
+  	<%= d.select(:service_id, @services.collect {|p| [ p.name, p.id ] },
+  	{include_blank: "select service"}) %>
   <% end %>
 
   <%= f.submit "Save" %>
