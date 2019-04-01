@@ -7,6 +7,10 @@ class Order < ApplicationRecord
   validates :date, presence: true
   validates :user_id, presence: true
 
+  delegate :name, to: :user, prefix: true
+
   ORDER_PARAMS = [:user_id, :date, order_details_attributes:
   	[:pet_id, :service_id, :order_id, :price]].freeze
+
+  scope :by_lastest, ->{order created_at: :desc}
 end

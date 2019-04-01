@@ -5,6 +5,9 @@ class OrderDetail < ApplicationRecord
 
   after_create :update_price
 
+  delegate :name, to: :pet, prefix: true
+  delegate :name, to: :service, prefix: true
+
   private
   def update_price
     service = Service.find_by id: self.service_id
