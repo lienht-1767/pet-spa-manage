@@ -2,7 +2,7 @@ class Admin::ServicesController < Admin::BaseController
   before_action :load_service, only: %i(edit update destroy)
 
   def index
-    @services = Service.page(params[:page]).per Settings.per_page
+    @services = Service.by_lastest.page(params[:page]).per Settings.per_page
   end
 
   def new

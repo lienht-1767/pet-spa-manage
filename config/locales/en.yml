@@ -142,10 +142,7 @@ en:
         picture: "Picture"
       update:
         post_updated: "Post updated!"
-        success: "Update success"
-      destroy:
-        post_deleted: "Post deleted!"
-        delete_failed: "Post delete failed!"
+        success: "Update successfully"
       load_post:
         post_not_found: "Post haven't found"
       edit:
