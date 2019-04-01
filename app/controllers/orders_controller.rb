@@ -6,8 +6,11 @@ class OrdersController < ApplicationController
 		@services = Service.public_service
 	end
 
-	def index
-	end
+	def index; end
+
+  def show
+    @order = Order.find_by id: params[:id]
+  end
 
 	def create
     @order = Order.new order_params
