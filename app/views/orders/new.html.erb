@@ -1,4 +1,5 @@
-<div class="col-md-8">
+<div class="col-md-4">
+    <h2>Order</h2>
   <%= form_for @order do |f| %>
     <%= render "shared/error_messages", object: f.object %>
     <%= f.hidden_field :user_id, value: current_user.id %>
@@ -7,7 +8,7 @@
     	<%= d.select(:pet_id, @pets.collect {|p| [ p.name, p.id ] },
     	{include_blank: "select pet"}) %>
     	<%= d.select(:service_id, @services.collect {|p| [ p.name, p.id ] },
-    	{include_blank: "select service"}) %>
+    	{include_blank: "select service", selected: @service_id}) %>
     <% end %>
     <%= f.submit "Save" %>
   <% end %>

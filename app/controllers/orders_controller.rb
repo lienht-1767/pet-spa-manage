@@ -5,6 +5,7 @@ class OrdersController < ApplicationController
   def new
     @order = Order.new
     @order.order_details.build
+    @service_id = params[:order][:service_id]
 	end
 
 	def index; end
@@ -15,7 +16,7 @@ class OrdersController < ApplicationController
     @order = Order.new order_params
     if @order.save
     	flash[:success] = "Ordered"
-    	redirect_to orders_path
+    	redirect_to order_detail_path(@order.id)
     else
     	flash[:error] = "fail"
     	render :new

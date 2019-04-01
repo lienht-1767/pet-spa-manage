@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     resources :comments
   end
   resources :orders
-  resources :order_detail, only: %i(show)
+  resources :order_details, only: %i(show)
   resources :services, only: %i(index show)
   namespace :admin do
     resources :comments
