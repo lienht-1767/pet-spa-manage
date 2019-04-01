@@ -6,7 +6,9 @@
       <div class="item">
         <div class="item-post item-post-default style2">
           <div class="post-thumb banner-advs zoom-image overlay-image">
-            <%= link_to image_tag("slide1-2.jpg"), post_path(p) %>
+            <%= link_to post_path(p) do %>
+              <%= image_tag p.picture.url if p.picture? %>
+            <% end %>
           </div>
           <div class="post-info">
             <h3 class="title14 dosis-font text-uppercase font-bold post-title">

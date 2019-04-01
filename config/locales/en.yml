@@ -86,7 +86,6 @@ en:
       hot_blog:
         title: "Haustiere"
         summary: "Pet trade and exchange"
-        summary_1: "Join the club with us, experience the best things with your pet"
         read_more: "Read more"
     comments:
       index:
@@ -152,6 +151,10 @@ en:
         picture: "Picture"
       update:
         post_updated: "Post updated!"
+        success: "Update success"
+      destroy:
+        post_deleted: "Post deleted!"
+        delete_failed: "Post delete failed!"
         success: "Update successfully"
       load_post:
         post_not_found: "Post haven't found"
@@ -175,7 +178,7 @@ en:
         pending: "Pending"
       create:
         create_unsuccess: "Create Unsuccesfully!"
-        created: Post Created!
+        created: "Service Created!"
     post:
       post: "Post"
       ago: "ago"
@@ -248,6 +251,8 @@ en:
       about_us: "About us"
       contact_us: "Contact us"
       account: "Account"
+    hot_blog:
+      read_more: "Read more"
   sessions:
     create:
       invalid_email_or_password_combination:
@@ -305,10 +310,12 @@ en:
       our_service: "OUR SERVICES"
     index:
       read_more: "Read more"
+      title: "Services"
     show:
       related: "Related services"
       detail: "Detail"
       login: "Please login before book"
+      book: "Book now"
   posts:
     post_home:
       title: "POSTS"
@@ -327,3 +334,18 @@ en:
       check_expiration: "password expired"
   post:
     should_be_less_than_5MB: "The images should be less than 5MB!"
+  comments:
+    comment:
+      delete: "Delete"
+      edit: "Edit"
+      sure: "Are you sure?"
+      ago: "ago"
+      format_time: "%B %e at %l:%M %p"
+    form:
+      create: "Create Comment"
+      update: "Update Comment"
+    comment_owner:
+      notice: "You cannot modify a different users udpates."
+  orders:
+    load_order:
+      not_found: "Order not found"

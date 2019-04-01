@@ -1,0 +1,12 @@
+<%= form_for [@post, @comment], remote: true do |f| %>
+  <div>
+    <%= f.text_field :content, class: "form-control commentbox",
+    autofocus: true, :id => "commentbox" %>
+  </div>
+  <div>
+    <%= button_to (f.object.new_record? ? t(".create") : t(".update")),
+    post_comments_path(post_id: @post), remote: true,
+    class: "btn btn-primary col-md-4" %>
+  </div>
+  <div class="clearfix"></div>
+<% end %>

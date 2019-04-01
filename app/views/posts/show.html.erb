@@ -1,58 +1,68 @@
 <div class="container">
-<div class="main-wrap-shop col-md-12 col-sm-8">
-  <div id="product-724">
-    <div class="product-detail">
-      <div class="row">
-        <div class="col-md-5 col-sm-12 col-xs-12">
-          <div class="detail-gallery">
-            <div class="wrap-detail-gallery images zoom-style2">
-              <div class="mid woocommerce-product-gallery__image">
-                <%= image_tag "slide1-2" %>
+  <div class="main-wrap-shop col-md-12 col-sm-8">
+    <div id="product-724">
+      <div class="product-detail">
+        <div class="row">
+          <div class="col-md-5 col-sm-12 col-xs-12">
+            <div class="detail-gallery">
+              <div class="wrap-detail-gallery images zoom-style2">
+                <div class="mid woocommerce-product-gallery__image">
+                  <%= image_tag @post.picture.url if @post.picture? %>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="col-md-12s col-sm-12 col-xs-12">
-          <div class="summary entry-summary detail-info">
-            <h2 class="product-title title24 dosis-font font-bold text-uppercase"><%= @post.title %></h2>
-            <p class="price"></p>
-            <div class="product-price simple"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span><%= @post.sumary %></span></div>
-          </div>
-          <div class="des ">
-            <h2 class="title18 font-bold text-uppercase title-single-related-post"></h2>
-            <div>
-              <p><%= @post.content %></p>
+          <div class="col-md-12s col-sm-12 col-xs-12">
+            <div class="summary entry-summary detail-info">
+              <h2 class="product-title title24 dosis-font font-bold text-uppercase"><%= @post.title %></h2>
+              <p class="price"></p>
+              <div class="product-price simple"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol"></span><%= @post.sumary %></span></div>
+            </div>
+            <div class="des ">
+              <h2 class="title18 font-bold text-uppercase title-single-related-post"></h2>
+              <div>
+                <p><%= @post.content %></p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <hr>
-    <div class="related-product col-md-12">
-      <h2 class="title18 font-bold text-uppercase"><%= t ".related" %></h2>
-      <div class="product-slider">
-      <% @other_posts.each do |other_posts| %>
-        <div class="post-716 product">
-          <div class="item-product item-product-grid">
-            <div class="product-thumb">
-              <a href="" class="product-thumb-link zoom-thumb">
-                <%= image_tag "slide1-2" %>
-              </a>
-              <div class="product-extra-link text-center">
-              <%= link_to t(".detail"), post_url(other_posts), class: "button addcart-link shop-button bg-color" %>
+      <hr>
+      <div class="feed-activity-list col-md-8">
+        <% if logged_in? %>
+        <div id="commentform" class="commentform">
+           <%= render "comments/form" %>
+        </div>
+        <% end %>
+        <div id="commentdiv" class="commentdiv">
+        <%= render "comments/comment" %>
+        </div>
+      </div>
+      <div class="related-product col-md-12">
+        <h2 class="title18 font-bold text-uppercase"><%= t ".related" %></h2>
+        <div class="product-slider">
+        <% @other_posts.each do |other_posts| %>
+          <div class="post-716 product">
+            <div class="item-product item-product-grid">
+              <div class="product-thumb">
+                <%= link_to post_path(other_posts) do %>
+                  <%= image_tag other_posts.picture.url if other_posts.picture? %>
+                <% end %>
+                <div class="product-extra-link text-center">
+                <%= link_to t(".detail"), post_url(other_posts), class: "button addcart-link shop-button bg-color" %>
+                </div>
+              </div>
+              <div class="product-info">
+                <h3 class="title18 text-uppercase product-title dosis-font font-bold">
+                  <%= link_to other_posts.title, post_url(other_posts) %>
+                </h3>
+                <div class="product-price simple"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span><%= other_posts.sumary %></span></div>
               </div>
             </div>
-            <div class="product-info">
-              <h3 class="title18 text-uppercase product-title dosis-font font-bold">
-                <%= link_to other_posts.title, post_url(other_posts) %>
-              </h3>
-              <div class="product-price simple"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span><%= other_posts.sumary %></span></div>
-            </div>
           </div>
+        <% end %>
         </div>
-      <% end %>
       </div>
     </div>
   </div>
-</div>
 </div>

@@ -8,4 +8,5 @@ class Pet < ApplicationRecord
     length: {maximum: Settings.max_sumary_length}
 
   scope :by_lastest, -> {order created_at: :desc}
+  scope :all_pets, ->{select :id, :name}
 end

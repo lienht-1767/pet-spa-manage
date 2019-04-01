@@ -7,7 +7,7 @@
           <div class="detail-gallery">
             <div class="wrap-detail-gallery images zoom-style2">
               <div class="mid woocommerce-product-gallery__image">
-                <%= image_tag "slide1-2" %>
+                <%= image_tag @service.picture.url if @service.picture? %>
               </div>
             </div>
           </div>
@@ -27,7 +27,7 @@
               <p><%= @service.description %></p>
             </div>
             <% if logged_in? %>
-            <button class="btn btn-success book"><%= t ".book" %></button>
+            <%= link_to t(".book"), new_order_path, class: "btn btn-success" %>
             <% else %>
             <p class="price login"><%= t ".login" %></p>
             <% end %>
@@ -36,21 +36,6 @@
       </div>
     </div>
     <hr>
-    <div class="form-order col-md-6" id="form-order" style="display: none">
-      <%= bootstrap_form_tag url: "/subscribe", class: "col-md-5" do |f| %>
-        <% if logged_in? %>
-          <%= f.hidden_field :user_id, value: current_user.id %>
-        <% end %>
-        <%= f.text_field :petname %>
-        <%= f.text_field :breed %>
-        <%= f.text_field :gender %>
-        <%= f.text_field :height %>
-        <%= f.text_field :weight %>
-        <%= f.collection_check_boxes :services, all_services, :id, :name %>
-        <%= f.datetime_field :publishing_date, class: "form-control" %>
-        <%= f.submit :submit %>
-      <% end %>
-    </div>
     <div class="related-product col-md-12">
       <h2 class="title18 font-bold text-uppercase single-title">
         <%= t ".related" %>
@@ -60,16 +45,16 @@
         <div class="post-716 product">
           <div class="item-product item-product-grid">
             <div class="product-thumb">
-              <a href="" class="product-thumb-link zoom-thumb">
-                <%= image_tag "slide1-2" %>
-              </a>
+              <%= link_to service_path(other_services) do %>
+                <%= image_tag other_services.picture.url if other_services.picture? %>
+              <% end %>
               <div class="product-extra-link text-center">
-              <%= link_to t(".detail"), service_url(other_services), class: "button addcart-link shop-button bg-color" %>
+              <%= link_to t(".detail"), service_path(other_services), class: "button addcart-link shop-button bg-color" %>
               </div>
             </div>
             <div class="product-info">
               <h3 class="title18 text-uppercase product-title dosis-font font-bold">
-                <%= link_to other_services.name, service_url(other_services) %>
+                <%= link_to other_services.name, service_path(other_services) %>
               </h3>
               <div class="product-price simple"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span><%= other_services.price %></span></div>
             </div>

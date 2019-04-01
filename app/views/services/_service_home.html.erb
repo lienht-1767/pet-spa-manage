@@ -8,7 +8,9 @@
           <div class="product-type-simple">
             <div class="item-product item-product-grid">
               <div class="product-thumb">
-                <%= link_to image_tag("slide1-2.jpg"), service_path(s) %>
+                <%= link_to service_path(s) do %>
+                  <%= image_tag s.picture.url if s.picture? %>
+                <% end %>
                 <div class="product-info">
                   <h3 class="title18 text-uppercase product-title dosis-font font-bold">
                     <%= link_to s.name, service_path(s) %>

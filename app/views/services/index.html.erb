@@ -1,13 +1,15 @@
 <div class="content-wrap content-sidebar-right col-md-9 col-sm-8 col-xs-12">
   <div class="title-page clearfix">
-    <h2 class="title30 font-bold dosis-font text-uppercase pull-left">Services</h2>
+    <h2 class="title30 font-bold"><%= t ".title" %></h2>
   </div>
   <div class="js-content-wrap blog-list-view ">
     <% @services.each do |s| %>
     <div class="row">
       <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="post-thumb banner-advs zoom-image overlay-image">
-          <%= link_to image_tag("slide1-2.jpg"), service_url(s) %>
+          <%= link_to service_path(s) do %>
+            <%= image_tag s.picture.url if s.picture? %>
+          <% end %>
         </div>
       </div>
       <div class="col-md-12 col-sm-12 col-xs-12">
@@ -16,7 +18,7 @@
             <a href="" class="black"><%= s.name %></a>
           </h3>
           <p class="desc"><%= s.description %></p>
-          <%= link_to t(".read_more"), service_url(s), class: "shop-button" %>
+          <%= link_to t(".read_more"), service_path(s), class: "shop-button" %>
         </div>
       </div>
     </div>

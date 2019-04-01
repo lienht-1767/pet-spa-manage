@@ -1,6 +1,5 @@
 class User < ApplicationRecord
   attr_accessor :remember_token, :activation_token, :reset_token
-  has_many :pets, dependent: :destroy
   has_many :orders
   has_many :likes
   has_many :comments, dependent: :destroy

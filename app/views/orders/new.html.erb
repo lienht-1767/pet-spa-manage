@@ -1,0 +1,15 @@
+<div class="col-md-8">
+  <%= form_for @order do |f| %>
+    <%= render "shared/error_messages", object: f.object %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.datetime_field :date %>
+    <%= f.fields_for :order_details do |d| %>
+    	<%= d.select(:pet_id, @pets.collect {|p| [ p.name, p.id ] },
+    	{include_blank: "select pet"}) %>
+    	<%= d.select(:service_id, @services.collect {|p| [ p.name, p.id ] },
+    	{include_blank: "select service"}) %>
+    <% end %>
+    <%= f.submit "Save" %>
+  <% end %>
+</div>
+<div class="clearfix"></div>

@@ -7,6 +7,8 @@ class PostsController < ApplicationController
 
   def show
     @other_posts = Post.other_posts(@post).limit Settings.limit_home
+    @comments = @post.comments.includes(:user).order(created_at: :desc)
+    @comment = Comment.new
   end
 
   private

@@ -7,7 +7,9 @@
     <div class="row">
       <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="post-thumb banner-advs zoom-image overlay-image">
-          <%= link_to image_tag("slide1-2.jpg"), post_path(p) %>
+          <%= link_to post_path(p) do %>
+            <%= image_tag p.picture.url if p.picture? %>
+          <% end %>
         </div>
       </div>
       <div class="col-md-12 col-sm-12 col-xs-12">

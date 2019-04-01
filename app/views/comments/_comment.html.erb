@@ -1,0 +1,25 @@
+<% @comments.each do |comment| %>
+<div class="feed-element">
+  <div class="media-body" style="font-size:14px;">
+    <span class="pull-right text-navy">
+      <%= time_ago_in_words(comment.updated_at) %> <%= t ".ago" %>
+    </span>
+    <strong><%= comment.user_name %></strong>
+    <br>
+    <small class="text-muted">
+      <%= @post.created_at.to_time.strftime t(".format_time") %>
+    </small>
+    <div class="well">
+      <%= comment.content.html_safe %>
+      <% if logged_in? && current_user == comment.user %>
+        <div class="actions">
+        <%= link_to t(".edit"), edit_post_comment_path(comment.post, comment),
+        :remote => true, class: "btn btn-xs btn-primary"  %>
+        <%= link_to t(".delete"), post_comment_path(comment.post, comment),
+        method: :delete, :remote => true, data: {confirm: t(".sure")}, class: "btn btn-xs btn-danger" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<% end %>
