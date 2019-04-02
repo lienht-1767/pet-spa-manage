@@ -23,5 +23,7 @@ Rails.application.routes.draw do
     resources :posts
     resources :users
     resources :pets
+    resources :orders
+    resources :order_details
   end
 end

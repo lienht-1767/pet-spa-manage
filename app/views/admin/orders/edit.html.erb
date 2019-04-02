@@ -1,0 +1,16 @@
+<% provide :title, t(".title") %>
+<div class="col-md-8">
+  <%= form_for [:admin, @order], class: "nifty_form" do |f| %>
+    <%= render "shared/error_messages", object: f.object %>
+    <%= f.label :status %>
+    <%= f.select :status, options_for_select(show_status,
+      {selected: @order.status}) %>
+
+    <%= f.fields_for :order_details do |d| %>
+      <%= d.select :pet_id, options_for_select(pet_option) %>
+      <%= d.select :service_id, options_for_select(service_option) %>
+    <% end %>
+
+    <%= f.submit t(".update"), class: "col-md-3 btn btn-success" %>
+  <% end %>
+</div>

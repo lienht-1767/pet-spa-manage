@@ -232,6 +232,25 @@ en:
         pet_updated: "Pet update!"
       destroy:
         pet_deleted: "Pet deleted!"
+    orders:
+      index:
+        orders: "Orders"
+        stt: "STT"
+        status: "Status"
+        user: "User"
+        created_at: "Created at"
+        action: "Action"
+        detail: "Detail"
+        edit: "Edit"
+        delete: "Delete"
+      edit:
+        title: "Edit order"
+        update: "Update"
+        public: "Public"
+        pending: "Pending"
+    order_details:
+      show:
+        title: "Detail order"
   static_pages:
     home:
       title: "Pet spa"

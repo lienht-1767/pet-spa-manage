@@ -5,10 +5,9 @@
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.datetime_field :date %>
     <%= f.fields_for :order_details do |d| %>
-    	<%= d.select(:pet_id, @pets.collect {|p| [ p.name, p.id ] },
-    	{include_blank: t(".select_pet")}) %>
-    	<%= d.select(:service_id, @services.collect {|p| [ p.name, p.id ] },
-    	{include_blank: t(".select_service"), selected: @service_id}) %>
+      <%= d.select :pet_id, options_for_select(pet_option) %>
+      <%= d.select :service_id, options_for_select(service_option,
+      {selected: @service_id}) %>
       <%= d.text_field :price, value: @service_price, readonly: :true %>
     <% end %>
     <%= f.submit t(".save") %>
