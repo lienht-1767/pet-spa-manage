@@ -4,9 +4,9 @@
   </div>
   <div class="js-content-wrap blog-list-view ">
     <% @services.each do |s| %>
-    <div class="row">
+    <div class="row services-index">
       <div class="col-md-12 col-sm-12 col-xs-12">
-        <div class="post-thumb banner-advs zoom-image overlay-image">
+        <div class="post-thumb overlay-image">
           <%= link_to service_path(s) do %>
             <%= image_tag s.picture.url if s.picture? %>
           <% end %>
@@ -25,3 +25,5 @@
     <% end %>
 <%= paginate @services %>
 </div>
+</div>
+<div class="clearfix"></div>

@@ -1,6 +1,6 @@
 class Order < ApplicationRecord
   belongs_to :user
-  has_many :order_details
+  has_many :order_details, dependent: :destroy
 
   enum status: {Public: 1, Pending: 0}
 

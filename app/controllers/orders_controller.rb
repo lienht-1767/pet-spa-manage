@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :load_order, only: %i(new show)
+  before_action :load_order, only: %i(show)
   before_action :logged_in_user
 
   def new

@@ -1,16 +1,12 @@
 <div class="vc_row wpb_row vc_row-no-padding" >
   <div class="wpb_column column_container col-sm-12">
-    <div class="banner-thumb">
-        <a href="#">
-          <img src="../wp-content/uploads/2018/01/dog_blog_12-370x250.jpg">
-        </a>
-    </div>
     <div class="banner-info" style="height: 186px;">
         <div class="container">
             <% @post.each do |post| %>
-            <div class="slider-content-text white text-center text-uppercase animated bounceIn" data-animated="bounceIn">
-                <h3 class="title48 dosis-font font-bold"><%= post.title %></h3>
-                <h2 class="title30 dosis-font font-bold"><%= post.sumary %></h2>
+            <div class="slider-content-text white text-center text-uppercase animated bounceIn" data-animated="bounceIn"
+            style="background: url("<%= post.picture.url %>")">
+                <h5 class="title24 dosis-font font-bold"><%= post.title %></h5>
+                <p><%= post.sumary %></p>
                 <p><%= link_to t(".read_more"), post_path(post), class: "btn btn-success" %></p>
             </div>
             <% end %>

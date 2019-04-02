@@ -19,6 +19,16 @@ class Admin::OrdersController < Admin::BaseController
     end
   end
 
+  def destroy
+    if @order.destroy
+      flash[:success] = t ".deleted"
+      redirect_to request.referer
+    else
+      flash[:error] = t ".delete_fail"
+      redirect_to admin_orders_path
+    end
+  end
+
   private
   def load_order
     @order = Order.find_by id: params[:id]

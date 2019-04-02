@@ -4,7 +4,7 @@ class Post < ApplicationRecord
 
   scope :most_likes, ->{where like_quantity: self.maximum(:like_quantity)}
   scope :other_posts, ->(id){where.not id: id}
-  scope :all_posts, ->{select :id, :title, :sumary, :content}
+  scope :all_posts, ->{select(:id, :title, :sumary, :picture, :content).where(status: 1).order created_at: :desc}
   POST_PARAMS = [:title, :content, :sumary, :picture].freeze
 
   scope :by_lastest, -> {order created_at: :desc}

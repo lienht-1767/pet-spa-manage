@@ -11,15 +11,15 @@
             <% end %>
           </div>
           <div class="post-info">
-            <h3 class="title14 dosis-font text-uppercase font-bold post-title">
+            <h5 class="title14 text-uppercase font-bold post-title">
               <%= link_to p.title, post_path(p) %>
-            </h3>
+            </h5>
             <ul class="list-inline-block post-meta-data">
               <li><i aria-hidden="true" class="fa fa-comment color"></i>
                <%= count_comments(p) %> <%= t ".comments" %></li>
             </ul>
             <p class="desc"><%= p.sumary %></p>
-            <%= link_to t(".read_more"), post_path(p), class: "readmore text-uppercase font-bold" %>
+            <%= link_to t(".read_more"), post_path(p), class: "readmore text-uppercase btn btn-success" %>
           </div>
         </div>
       </div>
