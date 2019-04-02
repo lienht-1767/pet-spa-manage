@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   attr_accessor :remember_token, :activation_token, :reset_token
   has_many :orders
-  has_many :likes
+  has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
 
   before_save {email.downcase!}

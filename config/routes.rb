@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :password_resets, except: %i(index show destroy)
   resources :posts do
     resources :comments
+    resources :likes
   end
   resources :orders
   resources :order_details, only: %i(show)

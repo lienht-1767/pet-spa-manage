@@ -340,6 +340,8 @@ en:
       title: "POSTS"
       read_more: "Read more"
       comments: "Comments"
+      like: "Like"
+      likes: "Likes"
     show:
       related: "Related Posts"
       detail: "Detail"
@@ -386,3 +388,10 @@ en:
       pet: "Pet"
       service: "Service"
       format_time: "%B %e at %l:%M %p"
+  likes:
+    form:
+      like: "Like"
+      un_like: "Unlike"
+    create:
+      cannot_like: "You cannot like more than one"
+      cannot_dislike: "You cannot dislike"

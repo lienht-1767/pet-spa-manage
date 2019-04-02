@@ -17,6 +17,8 @@
             <ul class="list-inline-block post-meta-data">
               <li><i aria-hidden="true" class="fa fa-comment color"></i>
                <%= count_comments(p) %> <%= t ".comments" %></li>
+               <li><i aria-hidden="true" class="fa fa-comment color"></i>
+               <%= p.likes.count %> <%= (p.likes.count) == 1 ? t(".like") : t(".likes") %></li>
             </ul>
             <p class="desc"><%= p.sumary %></p>
             <%= link_to t(".read_more"), post_path(p), class: "readmore text-uppercase btn btn-success" %>

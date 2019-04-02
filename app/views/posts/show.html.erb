@@ -23,6 +23,15 @@
           </div>
         </div>
       </div>
+      <div class="col-md-12">
+        <div id="like-form" class="col-md-1">
+          <%= render "likes/form" %>
+        </div>
+        <div  id="like-div">
+          <%= render "likes/like" %>
+      </div>
+      </div>
+      <div class="clearfix"></div>
       <hr>
       <div class="feed-activity-list col-md-6">
         <% if logged_in? %>
