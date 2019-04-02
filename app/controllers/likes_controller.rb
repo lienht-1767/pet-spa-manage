@@ -1,6 +1,6 @@
 class LikesController < ApplicationController
-  before_action :find_post
-  before_action :find_like, only: :destroy
+  before_action :load_post
+  before_action :load_like, only: :destroy
 
   def create
     if liked?
@@ -29,13 +29,15 @@ class LikesController < ApplicationController
   end
 
   private
-  def find_post
+  def load_post
     @post = Post.find_by id: params[:post_id]
   end
+
+  def load_like
+    @like = @post.likes.find_by id: params[:id]
+  end
+
   def liked?
     Like.where(user_id: current_user.id, post_id: params[:post_id]).exists?
-  end
-  def find_like
-    @like = @post.likes.find_by id: params[:id]
   end
 end

@@ -251,6 +251,9 @@ en:
     order_details:
       show:
         title: "Detail order"
+    likes:
+      index:
+        title: "Likes"
   static_pages:
     home:
       title: "Pet spa"

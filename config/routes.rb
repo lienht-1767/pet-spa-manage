@@ -26,5 +26,6 @@ Rails.application.routes.draw do
     resources :pets
     resources :orders
     resources :order_details
+    resources :likes
   end
 end
