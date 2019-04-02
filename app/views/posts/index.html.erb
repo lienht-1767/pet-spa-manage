@@ -18,6 +18,12 @@
             <%= link_to p.title, post_path(p) %></a>
           </h3>
           <p class="desc"><%= p.sumary %></p>
+          <ul class="list-inline-block post-meta-data">
+            <li><i aria-hidden="true" class="fa fa-comment color"></i>
+             <%= count_comments(p) %> <%= t ".comments" %></li>
+             <li><i aria-hidden="true" class="fa fa-comment color"></i>
+             <%= p.likes.count %> <%= (p.likes.count) == 1 ? t(".like") : t(".likes") %></li>
+          </ul>
           <%= link_to t(".read_more"), post_path(p), class: "shop-button" %>
         </div>
       </div>
