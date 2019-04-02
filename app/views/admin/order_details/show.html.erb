@@ -1,26 +1,22 @@
-<% provide(:title, t(".orders")) %>
+<% provide(:title, t(".title")) %>
 <div class="row">
+  <%= link_to t(".back_to_orders"), admin_orders_path, class: "btn btn-success" %>
   <div class="col-lg-12">
-    <div class="table-toolbar">
-      <%= link_to t(".back_to_order"), admin_orders_path, class: "btn btn-success" %>
-    </div>
     <div class="panel panel-default">
       <div class="panel-body">
         <table width="100%" class="table table-bordered table-hover" id="datatable">
           <thead>
             <tr>
-              <th><%= t ".order" %></th>
               <th><%= t ".pet" %></th>
               <th><%= t ".service" %></th>
-              <th><%= t ".action" %></th>
+              <th><%= t ".price" %></th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><%= @detail.order.id %></td>
               <td><%= @detail.pet_name %></td>
               <td><%= @detail.service_name %></td>
-              <td><%= @detail.created_at %></td>
+              <td><%= @detail.service_price %></td>
             </tr>
           </tbody>
         </table>

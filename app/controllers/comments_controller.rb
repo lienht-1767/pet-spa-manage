@@ -8,44 +8,35 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comments = Comment.lastest_by_post(@post)
-    @comment = @post.comments.new(params[:comment].permit(:content))
-    @comment.user_id = current_user.id
+    @comments = Comment.lastest_by_post @post
+    @comment = @post.comments.new comment_params
+    @comment.user = current_user
 
     respond_to do |format|
       if @comment.save
         format.js
-        format.html {redirect_to post_path(@post), notice: 'Comment was successfully created.'}
-        format.json {render :show}
+        format.html {redirect_to post_path @post}
       else
         format.html {render "posts/show" }
-        format.json {render json: @comment.errors }
       end
     end
   end
 
   def edit
-    respond_to do |format|
-      format.js
-    end
+    respond_to :js
   end
 
   def update
-    @comments = Comment.lastest_by_post(@post)
-    respond_to do |format|
-      if @comment.update(params[:comment].permit(:content))
-        format.js
-      else
-        format.js
-      end
-    end
+    @comments = Comment.lastest_by_post @post
+    @comment.update comment_params
+    respond_to :js
   end
 
   def destroy
-    @comments = Comment.lastest_by_post(@post)
+    @comments = Comment.lastest_by_post @post
     @comment.destroy
     respond_to do |format|
-      format.html {redirect_to post_path(@post)}
+      format.html {redirect_to post_path @post}
       format.js
     end
   end
@@ -54,20 +45,24 @@ class CommentsController < ApplicationController
   def load_post
     @post = Post.find_by id: params[:post_id]
     return if @post
-    flash[:notice] = "post not found"
+    flash[:notice] = t ".post_not_found"
     redirect_to @post
   end
 
   def load_comment
     @comment = @post.comments.find_by id: params[:id]
     return if @comment
-    flash[:notice] = @post.comments.find_by id: params[:id]
+    flash[:notice] = t ".comment_not_found"
     redirect_to @post
   end
 
   def comment_owner
     return if current_user.id == @comment.user_id
-    flash[:notice] = "not user"
+    flash[:notice] = t ".notice"
     redirect_to @post
+  end
+
+  def comment_params
+    params.require(:comment).permit Comment::COMMENT_PARAMS
   end
 end

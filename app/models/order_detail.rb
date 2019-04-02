@@ -3,15 +3,10 @@ class OrderDetail < ApplicationRecord
   belongs_to :pet
   belongs_to :service
 
-  after_create :update_price
-
+  delegate :date, to: :order, prefix: true
   delegate :name, to: :pet, prefix: true
   delegate :name, to: :service, prefix: true
+  delegate :price, to: :service, prefix: true
 
-  private
-  def update_price
-    service = Service.find_by id: self.service_id
-    return unless service
-    self.update price: service.price
-  end
+  scope :detail, ->(order_id){where order_id: order_id}
 end

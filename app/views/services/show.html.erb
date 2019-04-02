@@ -27,9 +27,10 @@
               <p><%= @service.description %></p>
             </div>
             <% if logged_in? %>
-            <%= link_to t(".book"), new_order_path(order: {service_id: @service.id}), class: "btn btn-success" %>
+              <%= link_to t(".book"), new_order_path(order:
+              {service_id: @service.id, price: @service.price}), class: "btn btn-success" %>
             <% else %>
-            <p class="price login"><%= t ".login" %></p>
+              <p class="price login"><%= t ".login" %></p>
             <% end %>
           </div>
         </div>
