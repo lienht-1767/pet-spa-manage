@@ -23,7 +23,7 @@ class Admin::OrdersController < Admin::BaseController
   def destroy
     if @order.destroy
       flash[:success] = t ".deleted"
-      redirect_to request.referer
+      redirect_to admin_orders_path
     else
       flash[:error] = t ".delete_fail"
       redirect_to admin_orders_path

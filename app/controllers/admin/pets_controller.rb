@@ -35,7 +35,7 @@ class Admin::PetsController < Admin::BaseController
   def destroy
     if @pet.destroy
       flash[:success] = t(".pet_deleted")
-      redirect_to request.referrer
+      redirect_to admin_pets_path
     else
       flash[:error] = t(".delete_failed")
       redirect_to admin_pets_path
